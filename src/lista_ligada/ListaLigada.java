@@ -67,8 +67,39 @@ public class ListaLigada {
       this.tamanho++;
    }
 
-   public void remover(String novoValor) {
+   public void remover(String valorProcurado) {
+      Elemento anterior = null; // Para salvar o elemento anterior
+      Elemento atual = this.primeiro; // O Atual da rodada
+      for (int i = 0; i < this.getTamanho(); i++) {
+         // Passando na lista até achar o procurado
+         if (atual.getValor().equalsIgnoreCase(valorProcurado)) { // Removendo o elemento
 
+            // Se a lista tem apenas 1 elemento
+            if (this.tamanho == 1) {
+               this.primeiro = null; // O primeiro se torna null
+               this.ultimo = null; // O último também se torna null
+            }
+            // Se for o primeiro
+            else if (atual == primeiro) {
+               this.primeiro = atual.getProximo(); // O segundo se torna o primeiro
+               atual.setProximo(null); // Quebra a referência do primeiro nó
+            }
+            // Se for o último
+            else if (atual == ultimo) {
+               this.ultimo = anterior; // O penúltimo se torna o último
+               anterior.setProximo(null); // Apaga a referência do último nó
+            }
+            // Caso intermediário
+            else {
+               anterior.setProximo(atual.getProximo()); // O anterior aponta para o próximo do atual
+            }
+            // Independente dos Casos
+            this.tamanho--; // Diminuindo o tamanho da lista
+            break; // Já achamos, vamos parar de procurar
+         }
+         anterior = atual; // Atualiza o anterior antes de avançar
+         atual = atual.getProximo(); // Avança o atual para o próximo elemento
+      }
    }
 
    public Elemento get(int posicao) {
