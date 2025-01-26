@@ -2,6 +2,7 @@ package listaXvetor;
 
 import java.util.ArrayList;
 
+import Iterator.IteratorListaLigada;
 import Lista_Ligada_Generics.ListaGenerica;
 
 public class Comparacao {
@@ -41,7 +42,6 @@ public class Comparacao {
       System.out.println();
 
       // Com ListaLigada
-      limite = 1000000;
       tempInicial = System.currentTimeMillis();
 
       for (int i = 0; i < limite; i++) {
@@ -79,20 +79,36 @@ public class Comparacao {
       // Leitura de Valores da Lista
 
       tempInicial = System.currentTimeMillis();
-      for (int i = 0; i < lista.getTamanho(); i++) { // vetor.size() = Desta forma pegamos o tamanho do vetor
-         // System.out.println(vetor.get(i)); um recurso a + para imprimir os elementos
-         lista.get(i);
+      IteratorListaLigada<Integer> iterator = lista.getIterator();
+
+      while (iterator.temProximo()) {
+         iterator.getProximo();
       }
+
       tempFinal = System.currentTimeMillis();
-      System.out.println("Tempo de Leitura do Vetor");
+      System.out.println("Tempo de Leitura do Lista Ligada");
       System.out.println(tempFinal - tempInicial); // return - Tecnicamente Muito demorado
 
       /*
-       * Sendo esse o maior problema da lista ligada
-       * para chegar em 1000000 na lista ligada ele vai funciona
-       * da seguinte forma:
-       * 1,2,3,4,5,6... até 1000000
-       * (sendo uma forma errada)
+       * Antes do iterator como funcinava :
+       * 
+       * para pegar o item 5 oq fazia ?
+       * primeira rodada : 1 // Não achou
+       * segunda rodada :1,2 // Não achou
+       * terceira rodada :1,2,3 // Não achou
+       * quarta rodada :1,2,3,4 // Não achou
+       * quinta rodada :1,2,3,4,5 // Achou
+       * ja que achou parava de roda.
+       * porem imagina isso com 100000 itens.
+       * 
+       * com o Iterrator :
+       * 
+       * Basicamente ele guarda o seu ultimo numero,
+       * como uma busca linear ex:
+       * para pegar o item 3
+       * 
+       * rodada 1 : 1 (não achou), 2 (não achou),3 (achou)
+       * se achou parava de procurar
        */
 
    }

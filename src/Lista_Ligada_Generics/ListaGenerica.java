@@ -1,5 +1,7 @@
 package Lista_Ligada_Generics;
 
+import Iterator.IteratorListaLigada;
+
 public class ListaGenerica<TIPO> {
 
    private Elemento<TIPO> primeiro;
@@ -94,5 +96,10 @@ public class ListaGenerica<TIPO> {
          }
       }
       return atual;
+   }
+
+   public IteratorListaLigada<TIPO> getIterator() {
+      return new IteratorListaLigada<TIPO>(this.primeiro);
+      // Precisamos ter um construtor na nossa IteratorListaLigada
    }
 }
