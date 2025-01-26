@@ -1,4 +1,4 @@
-package Lista_Ligada_Generics;
+package lista_ligada.Lista_Ligada_Generics;
 
 public class programa {
    public static void main(String[] args) {

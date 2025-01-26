@@ -3,7 +3,7 @@ package listaXvetor;
 import java.util.ArrayList;
 
 import Iterator.IteratorListaLigada;
-import Lista_Ligada_Generics.ListaGenerica;
+import lista_ligada.Lista_Ligada_Generics.ListaGenerica;
 
 public class Comparacao {
    public static void main(String[] args) {
