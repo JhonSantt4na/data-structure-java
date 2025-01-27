@@ -1,4 +1,4 @@
-package busca_linear;
+package Buscas.busca_linear;
 
 import java.util.Scanner;
 
