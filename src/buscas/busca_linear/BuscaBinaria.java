@@ -1,10 +1,10 @@
-package Buscas.busca_linear;
+package buscas.busca_linear;
 
 import java.util.Scanner;
 
 public class BuscaBinaria {
    public static void main(String[] args) {
-      // o(log n) melhor classificação 
+      // o(log n) melhor classificação
       // Precisa que esteja o vetor ordenado
       // Iniciando o vetor e Adicionando elementos
       int[] vetor = new int[10000];
