@@ -32,7 +32,7 @@ public class QuickSort {
 
    static void quicksort(int[] vetor, int esquerda, int direita) {
       if (esquerda < direita) {
-         int p = particao(vetor, esquerda, direita); // Obtém o índice do pivô
+         int p = particao(vetor, esquerda, direita); // Obtém o índice do pivô e divide o vetor
          quicksort(vetor, esquerda, p - 1); // Ordena a partição à esquerda do pivô
          quicksort(vetor, p + 1, direita); // Ordena a partição à direita do pivô
       }
