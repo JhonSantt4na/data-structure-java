@@ -7,6 +7,10 @@ public class Arvore<TIPO extends Comparable> {
       this.raiz = null;
    }
 
+   public Elemento<TIPO> getRaiz() {
+      return raiz;
+   }
+
    public void adicionar(TIPO valor) {
       Elemento<TIPO> novoElemento = new Elemento<TIPO>(valor);
       if (raiz == null) {
@@ -32,4 +36,20 @@ public class Arvore<TIPO extends Comparable> {
          }
       }
    }
+
+   /*
+    * Em Ordem : esquerda -> cima -> direita
+    * 
+    * 
+    */
+
+   public void emOrdem(Elemento<TIPO> atual) {
+      if (atual != null) {
+         emOrdem(atual.getEsquerda());
+         System.out.println(atual.getValor());
+         emOrdem(atual.getDireita());
+      }
+
+   }
+
 }
