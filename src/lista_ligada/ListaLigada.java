@@ -111,4 +111,19 @@ public class ListaLigada {
       }
       return atual;
    }
+
+   public void adicionarComerco(String novoValor) {
+      Elemento novoElemento = new Elemento(novoValor); // Criando uma bolinha
+      // Se for o primeiro elemento
+      // O Primeiro e ultimo passa a ser o novoElemento
+      if (this.primeiro == null && this.ultimo == null) {
+         this.primeiro = novoElemento;
+         this.ultimo = novoElemento;
+      } else {
+         novoElemento.setProximo(this.primeiro);
+         this.primeiro = novoElemento;
+      }
+      this.tamanho++;
+   }
+
 }
