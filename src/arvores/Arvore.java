@@ -39,8 +39,8 @@ public class Arvore<TIPO extends Comparable> {
 
    /*
     * Em Ordem : esquerda -> cima -> direita
-    * 
-    * 
+    * pre Ordem : cima -> esquerda -> direita
+    * pos Ordem : esquerda -> direita -> cima
     */
 
    public void emOrdem(Elemento<TIPO> atual) {
@@ -49,7 +49,21 @@ public class Arvore<TIPO extends Comparable> {
          System.out.println(atual.getValor());
          emOrdem(atual.getDireita());
       }
-
    }
 
+   public void preOrdem(Elemento<TIPO> atual) {
+      if (atual != null) {
+         System.out.println(atual.getValor());
+         preOrdem(atual.getEsquerda());
+         preOrdem(atual.getDireita());
+      }
+   }
+
+   public void posOrdem(Elemento<TIPO> atual) {
+      if (atual != null) {
+         posOrdem(atual.getEsquerda());
+         posOrdem(atual.getDireita());
+         System.out.println(atual.getValor());
+      }
+   }
 }
