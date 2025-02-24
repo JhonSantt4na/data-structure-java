@@ -15,10 +15,52 @@ public class App {
       System.out.println("Em Ordem");
       arvore.emOrdem(arvore.getRaiz());
 
-      System.out.println("Pre Ordem");
-      arvore.preOrdem(arvore.getRaiz());
+      /*
+       * System.out.println("Pre Ordem");
+       * arvore.preOrdem(arvore.getRaiz());
+       * 
+       * System.out.println("Pos Ordem");
+       * arvore.posOrdem(arvore.getRaiz());
+       */
 
-      System.out.println("Pos Ordem");
-      arvore.posOrdem(arvore.getRaiz());
+      arvore.remover(20);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(5);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(8);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(9);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(13);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(7);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(18);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
+
+      arvore.remover(10);
+
+      System.out.println("Em Ordem");
+      arvore.emOrdem(arvore.getRaiz());
    }
 }

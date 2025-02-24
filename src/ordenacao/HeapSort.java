@@ -65,6 +65,4 @@ public class HeapSort {
          aplicarHeap(vetor, n, raiz);
       }
    }
-
-   // Testando o Github!
 }

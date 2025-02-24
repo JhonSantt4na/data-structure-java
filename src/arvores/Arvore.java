@@ -11,6 +11,7 @@ public class Arvore<TIPO extends Comparable> {
       return raiz;
    }
 
+   // Adicionando Elementos na Arvore
    public void adicionar(TIPO valor) {
       Elemento<TIPO> novoElemento = new Elemento<TIPO>(valor);
       if (raiz == null) {
@@ -65,5 +66,93 @@ public class Arvore<TIPO extends Comparable> {
          posOrdem(atual.getDireita());
          System.out.println(atual.getValor());
       }
+   }
+
+   // Remover Elemento da Arvore
+   public boolean remover(TIPO valor) {
+      // Busca o elemento na Arvore
+      Elemento<TIPO> atual = this.raiz;
+      Elemento<TIPO> paiAtual = null;
+
+      while (atual != null) {
+         if (atual.getValor().equals(valor)) {
+            break;
+         } else if (valor.compareTo(atual.getValor()) == -1) {
+            paiAtual = atual;
+            atual = atual.getEsquerda();
+         } else {
+            paiAtual = atual;
+            atual = atual.getDireita();
+         }
+      }
+      // Verifica se existe o elemento
+      if (atual != null) {
+         // se tem 2 filhos ou elemento tem somente filho a direita
+         if (atual.getDireita() != null) {
+
+            Elemento<TIPO> substituto = atual.getDireita();
+            Elemento<TIPO> paiSubstituto = atual;
+            while (substituto.getEsquerda() != null) {
+               paiSubstituto = substituto;
+               substituto = substituto.getEsquerda();
+            }
+            substituto.setEsquerda(atual.getEsquerda());
+            if (paiAtual != null) {
+               if (atual.getValor().compareTo(paiAtual.getValor()) == -1) {
+                  paiAtual.setEsquerda(substituto);
+               } else {
+                  paiAtual.setDireita(substituto);
+               }
+            } else { // Se não tem pai atual é a Raiz
+               this.raiz = substituto;
+            }
+
+            // Removeu elemento da arvore
+            if (substituto.getValor().compareTo(paiSubstituto.getValor()) == -1) {
+               paiSubstituto.setEsquerda(null);
+            } else {
+               paiSubstituto.setDireita(null);
+            }
+         } else if (atual.getEsquerda() != null) { // Tem Filhos para a esquerda
+            Elemento<TIPO> substituto = atual.getEsquerda();
+            Elemento<TIPO> paiSubstituto = atual;
+            while (substituto.getDireita() != null) {
+               paiSubstituto = substituto;
+               substituto = substituto.getDireita();
+            }
+            if (paiAtual != null) {
+               if (atual.getValor().compareTo(paiAtual.getValor()) == -1) {
+                  paiAtual.setEsquerda(substituto);
+               } else {
+                  paiAtual.setDireita(substituto);
+               }
+            } else {
+               this.raiz = substituto;
+            }
+
+            // Removeu elemento da arvore
+            if (substituto.getValor().compareTo(paiSubstituto.getValor()) == -1) {
+               paiSubstituto.setEsquerda(null);
+            } else {
+               paiSubstituto.setDireita(null);
+            }
+
+         } else { // não tem filho
+            if (paiAtual != null) {
+               if (atual.getValor().compareTo(paiAtual.getValor()) == -1) {
+                  paiAtual.setEsquerda(null);
+               } else {
+                  paiAtual.setDireita(null);
+               }
+            } else { // é a Raiz
+               this.raiz = null;
+            }
+
+         }
+         return true;
+      } else {
+         return false;
+      }
+
    }
 }
