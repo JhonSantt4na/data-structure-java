@@ -28,4 +28,21 @@ public class Vertice<TIPO> {
    public void adicionarArestaSaida(Aresta<TIPO> aresta) {
       this.arrestaSaida.add(aresta);
    }
+
+   public ArrayList<Aresta<TIPO>> getArrestaEntrada() {
+      return arrestaEntrada;
+   }
+
+   public void setArrestaEntrada(ArrayList<Aresta<TIPO>> arrestaEntrada) {
+      this.arrestaEntrada = arrestaEntrada;
+   }
+
+   public ArrayList<Aresta<TIPO>> getArrestaSaida() {
+      return arrestaSaida;
+   }
+
+   public void setArrestaSaida(ArrayList<Aresta<TIPO>> arrestaSaida) {
+      this.arrestaSaida = arrestaSaida;
+   }
+   
 }

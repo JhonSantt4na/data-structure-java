@@ -16,5 +16,6 @@ public class App {
       grafo.adicionarAresta(2.0, "Cláudio", "Lorenzo");
       grafo.adicionarAresta(3.0, "Cláudio", "Joao");
 
+      grafo.buscaEmLargura();
    }
 }
